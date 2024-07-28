@@ -20,6 +20,11 @@ export class AuthController {
     res.redirect(githubAuthUrl, 302);
   }
 
+  @Get('')
+  async page(): Promise<number> {
+    return 1;
+  }
+
   @Get('github/callback')
   @ApiOperation({ summary: 'GitHub OAuth callback' })
   async githubLoginCallback(@Query('code') code: string, @Res() res: FastifyReply): Promise<any> {
